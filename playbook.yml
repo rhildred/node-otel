@@ -2,6 +2,13 @@
   hosts: localhost
   gather_facts: false
   tasks:
+    - name: Install packages
+      become: yes
+      package:
+        name:
+          - nodejs
+          - npm
+        state: present    
     - name: Install pyyaml==5.3.1 python package
       ansible.builtin.pip:
         name: pyyaml==5.3.1
