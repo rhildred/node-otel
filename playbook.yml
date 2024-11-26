@@ -22,9 +22,9 @@
       ansible.builtin.pip:
         name: requests==2.31.0
     - name: deploy Docker Compose stack
-      docker_compose:
+      community.docker.docker_compose_v2:
         project_src: clickhouse-setup
         files:
         - docker-compose-minimal.yaml
-        pull: yes
+        pull: missing
         state: present
